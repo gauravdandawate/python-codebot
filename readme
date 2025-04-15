@@ -1,7 +1,7 @@
 Python CodeBot
 ==============
 
-A local-first, codebase-aware chatbot for Python repositories. Powered by LangChain, AST, Groq, FastAPI, and Streamlit, it understands your codebase and answers queries with relevant class/function/annotation references and code snippets.
+A local-first, codebase-aware chatbot for Python repositories. Powered by LangChain, AST, Llama3 (with Groq), FastAPI, and Streamlit, it understands your codebase and answers queries with relevant class/function/annotation references and code snippets.
 
 Features
 --------
