@@ -1,0 +1,96 @@
+Python CodeBot
+==============
+
+A local-first, codebase-aware chatbot for Python repositories. Powered by LangChain, AST, Groq, FastAPI, and Streamlit, it understands your codebase and answers queries with relevant class/function/annotation references and code snippets.
+
+Features
+--------
+
+- Embeds your codebase using AST metadata
+- Answers questions intelligently with relevant context
+- Displays code snippets with file references
+- Streamlit-based UI for easy interaction
+- FastAPI backend with endpoints for embedding and querying
+
+
+
+Installation
+------------
+
+1. Clone the Repo
+
+   git clone https://github.com/gauravdandawate/python-codebot.git
+   cd python-codebot
+
+2. Create a Virtual Environment
+
+   python3 -m venv venv
+   source venv/bin/activate
+
+3. Install Dependencies
+
+   pip install -r requirements.txt
+
+Running the Application
+-----------------------
+
+1. Start FastAPI Server
+
+   uvicorn main:app --reload
+
+2. Launch Streamlit UI 
+
+   streamlit run app_ui.py
+
+Generating Embeddings
+---------------------
+
+Embed your codebase before querying:
+
+From Streamlit UI:
+- Click "Generate Embeddings" and enter path (e.g., `codebase/`)
+
+Or using API:
+
+   curl -X POST http://localhost:8000/embed \
+        -H "Content-Type: application/json" \
+        -d '{"codebase_path": "codebase/"}'
+
+Example Queries
+---------------
+
+- What APIs are defined in `main.py`?
+- What does the class `UserManager` do?
+- List all decorators in the project.
+- How many functions are defined in `utils.py`?
+
+How it Works
+------------
+
+- Uses Python AST to extract classes, functions, annotations
+- Stores metadata with each embedded chunk
+- FAISS used as vector store for retrieval
+- LangChain formats and answers queries
+- Code snippets shown via Streamlit
+
+Re-embedding
+------------
+
+To start fresh with new embeddings:
+
+   rm -rf index_store/
+   curl -X POST http://localhost:8000/embed \
+        -H "Content-Type: application/json" \
+        -d '{"codebase_path": "codebase/"}'
+
+Requirements
+------------
+
+- Python 3.10+
+- Groq API key (free version is sufficent)
+
+
+Author
+------
+
+Created by @gauravdandawate

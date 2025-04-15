@@ -1,0 +1,14 @@
+langchain>=0.1.0
+faiss-cpu
+tiktoken
+openai
+streamlit
+uvicorn
+fastapi
+pydantic
+typing-extensions
+watchdog
+groq
+langchain-community
+langchain-groq
+sentence-transformers
