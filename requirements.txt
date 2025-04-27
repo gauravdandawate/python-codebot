@@ -12,3 +12,5 @@ groq
 langchain-community
 langchain-groq
 sentence-transformers
+pyvis
+matplotlib
